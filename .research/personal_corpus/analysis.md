@@ -1,103 +1,103 @@
 ---
 private: true
 type: research
-generated: 2026-01-24T12:37:35.544820
+generated: 2026-01-24T13:58:24.598852
 ---
 
 ======================================================================
 PERSONAL CORPUS ANALYSIS
-Generated: 2026-01-24T12:37:35.544779
+Generated: 2026-01-24T13:58:24.598792
 ======================================================================
 
 OVERVIEW
 ----------------------------------------
-  Total entries collected: 13
-  Total words: 184
-  Unique words: 116
-  Vocabulary richness: 0.6304
-  Avg words per entry: 14.2
+  Total entries collected: 65
+  Total words: 916
+  Unique words: 304
+  Vocabulary richness: 0.3319
+  Avg words per entry: 14.1
 
 TOP 20 WORDS
 ----------------------------------------
-  the                      10 ( 5.43%)
-  that                     10 ( 5.43%)
-  of                        8 ( 4.35%)
-  i                         8 ( 4.35%)
-  a                         6 ( 3.26%)
-  have                      4 ( 2.17%)
-  to                        4 ( 2.17%)
-  and                       4 ( 2.17%)
-  data                      4 ( 2.17%)
-  we                        3 ( 1.63%)
-  is                        3 ( 1.63%)
-  words                     3 ( 1.63%)
-  will                      3 ( 1.63%)
-  want                      2 ( 1.09%)
-  scribe                    2 ( 1.09%)
-  make                      2 ( 1.09%)
-  on                        2 ( 1.09%)
-  corpus                    2 ( 1.09%)
-  see                       2 ( 1.09%)
-  but                       2 ( 1.09%)
+  the                      43 ( 4.69%)
+  to                       32 ( 3.49%)
+  i                        31 ( 3.38%)
+  of                       29 ( 3.17%)
+  that                     28 ( 3.06%)
+  we                       25 ( 2.73%)
+  is                       23 ( 2.51%)
+  a                        22 ( 2.40%)
+  and                      20 ( 2.18%)
+  will                     18 ( 1.97%)
+  you                      17 ( 1.86%)
+  have                     16 ( 1.75%)
+  with                     14 ( 1.53%)
+  this                     14 ( 1.53%)
+  all                      10 ( 1.09%)
+  it                       10 ( 1.09%)
+  what                      9 ( 0.98%)
+  make                      9 ( 0.98%)
+  are                       9 ( 0.98%)
+  in                        9 ( 0.98%)
 
 TOP 10 BIGRAMS (word pairs)
 ----------------------------------------
-  that i                             3
-  we have                            2
-  i want                             2
-  is a                               2
-  corpus of                          2
-  the words                          2
-  words that                         2
-  will be                            2
-  alright lets                       1
-  lets get                           1
+  is a                               7
+  that i                             7
+  of the                             7
+  we have                            6
+  i want                             6
+  this is                            6
+  that we                            6
+  to do                              5
+  will be                            5
+  and we                             5
 
 TOP 10 TRIGRAMS (word triplets)
 ----------------------------------------
-  alright lets get                            1
-  lets get a                                  1
-  get a summary                               1
-  a summary of                                1
-  summary of what                             1
-  of what we                                  1
-  what we have                                1
-  we have accomplished                        1
-  have accomplished today                     1
-  i want scribe                               1
+  this is a                                   4
+  what we have                                3
+  at the end                                  3
+  the end of                                  3
+  one of the                                  3
+  that we have                                3
+  and we will                                 3
+  alright lets get                            2
+  lets get a                                  2
+  get a summary                               2
 
 ERROR PATTERNS DETECTED
 ----------------------------------------
-  [transposition] and             → adn             (×4)
+  [transposition] and             → adn             (×20)
     Example: "human behavior and tht is"
-  [doubling    ] will            → wil             (×3)
+  [doubling    ] will            → wil             (×18)
     Example: "scribe will work that"
-  [substitution] will            → will            (×2)
+  [substitution] will            → will            (×17)
     Example: "and this will be one"
-  [doubling    ] summary         → sumary          (×1)
+  [substitution] all             → all             (×9)
+    Example: "corpus of all the words"
+  [substitution] see             → see             (×3)
+    Example: "want to see if i"
+  [doubling    ] summary         → sumary          (×2)
     Example: "get a summary of what"
-  [doubling    ] accomplished    → acomplished     (×1)
+  [doubling    ] accomplished    → acomplished     (×2)
     Example: "we have accomplished today"
-  [doubling    ] session         → sesion          (×1)
+  [doubling    ] session         → sesion          (×2)
     Example: "of each session"
-  [doubling    ] spell           → spel            (×1)
+  [doubling    ] spell           → spel            (×2)
     Example: "you have spell check but"
-  [doubling    ] missspellings   → mispelings      (×1)
+  [doubling    ] missspellings   → mispelings      (×2)
     Example: "capture the missspellings adn bad"
-  [transposition] adn             → and             (×1)
+  [transposition] adn             → and             (×2)
     Example: "the missspellings adn bad habits"
-  [omission    ] represntative   → representative  (×1)
+  [omission    ] represntative   → representative  (×2)
     Example: "they are represntative of human"
-  [omission    ] tht             → that            (×1)
+  [omission    ] tht             → that            (×2)
     Example: "behavior and tht is data"
-  [doubling    ] matters         → maters          (×1)
+  [doubling    ] matters         → maters          (×2)
     Example: "data that matters to us"
-  [insertion   ] reasearch       → research        (×1)
+  [insertion   ] reasearch       → research        (×2)
     Example: "lot of reasearch on"
-  [doubling    ] collect         → colect          (×1)
-    Example: "collect the words"
-  [doubling    ] apply           → aply            (×1)
-    Example: "apply principals of"
 
 ======================================================================
 This corpus represents YOUR unique language patterns.
