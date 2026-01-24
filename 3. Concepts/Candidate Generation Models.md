@@ -1,0 +1,250 @@
+
+Candidate generation models define **how password guesses are created and ordered** before they are evaluated against hashes.
+
+They are not cracking methods by themselves.  They are **input strategies** that control:
+
+- Which candidates are tried
+- In what order
+- With what assumptions about human behavior
+
+Understanding candidate generation models is essential for interpreting results, comparing approaches, and designing defensible experiments.
+
+This page provides a **conceptual map** of common models rather than tool-specific usage. However, the approach used for the [[Concept Application - HashCat|HashCat]]/[[Concept Application - John the Ripper|JtR]] walkthroughs incorporates several of these candidate generation models and can be used as practical reference for context throughout this page.
+
+---
+
+## Why Candidate Generation Matters
+
+Given any password hash, two questions dominate:
+
+1. **Which guesses are you going to try?**  
+2. **In what order will you try them?**
+
+Candidate generation models encode different answers based on:
+
+- Assumptions about human choice
+- Willingness to search large spaces
+- Emphasis on structure vs randomness
+- Available compute and time
+
+---
+
+## High-Level Model Categories
+
+Most candidate generation approaches fall into a few broad families:
+
+- **Dictionary + Rules** – transform known strings in structured ways  
+- **Combinator Models** – combine multiple words or elements  
+- **Mask / Brute-Force Models** – explore character spaces systematically  
+- **Statistical Models (e.g., Markov)** – use character-level probabilities  
+- **Grammar-Based Models (e.g., PCFG)** – use structural rules and probabilities  
+- **Chained Element Models (e.g., PRINCE)** – combine elements into probabilistic chains  
+
+---
+
+## 1. Dictionary + Rules
+
+**Concept:**  
+Start with a list of known or likely strings (words, usernames, common passwords) and apply **transformation rules** to generate variants.
+
+Examples of transformations:
+
+- Capitalization changes  
+- Suffix/prefix addition (digits, years, symbols)  
+- Common substitutions (`a → @`, `s → $`, `o → 0`)  
+- Simple concatenation of a small number of elements  
+
+**Strengths:**
+
+- Highly efficient when rules reflect real behavior  
+- Easy to reason about and explain  
+- Front-loaded: strong early performance on real datasets  
+
+**Limitations:**
+
+- Requires human effort to design good rules  
+- Can miss novel or unconventional structures  
+- May overfit to past datasets if not updated
+
+**Best thought of as:**  
+
+A **handcrafted “first pass”** tailored to common behavior.
+
+---
+
+## 2. Combinator Models
+
+**Concept:**  
+Combine elements (often from two or more wordlists) into multi-part candidates.
+
+Examples:
+
+- `word1 + word2`  
+- `word + number`  
+- `prefix + word + suffix`
+
+**Strengths:**
+
+- Captures simple multi-word or word+number passwords  
+- Useful for modeling composition policies (e.g., “add a number or word”)  
+
+**Limitations:**
+
+- Typically limited to 2–3 elements  
+- Explosion in keyspace if not constrained  
+- Little sense of probability without additional structure or weighting
+
+**Best thought of as:**  
+
+A way to explore **simple composition** beyond single-word dictionaries.
+
+---
+
+## 3. Mask / Brute-Force Models
+
+**Concept:**  
+Enumerate candidates by **position and character class**:
+
+- `?l?l?l?l` (4 lowercase letters)  
+- `?u?l?l?l?d?d` (capital + 3 lowercase + 2 digits)  
+
+Masks specify **where** types of characters go, then brute force all combinations that fit.
+
+**Strengths:**
+
+- Deterministic and complete within the defined mask  
+- Good for small spaces and targeted structures  
+- Useful for short passwords and constrained format assumptions  
+
+**Limitations:**
+
+- Grows exponentially with length and flexibility  
+- Blind to human behavior; depends entirely on mask choice  
+
+**Best thought of as:**  
+
+A **surgical brute-force tool** constrained by positional templates.
+
+---
+
+## 4. Statistical (Markov-style) Models
+
+**Concept:**  
+Model passwords as sequences of characters with **learned transition probabilities** (e.g., Markov chains). Candidates are generated in order of **most likely character sequences** based on training data.
+
+**Strengths:**
+
+- Captures character-level tendencies (letter frequencies, common digrams, etc.)  
+- Efficient at guessing “natural language-like” and pattern-driven passwords  
+- More flexible than handcrafted rules  
+
+**Limitations:**
+
+- Limited visibility into **higher-level structure** (e.g., word boundaries)  
+- Depends on quality and relevance of training data  
+
+**Best thought of as:**  
+
+A **character-level statistical lens** on password generation.
+
+---
+
+## 5. Grammar-Based Models (PCFGs)
+
+**Concept:**  
+Use a **[[Probabalistic Context Free Grammer (PCFG)]]** to model password structure:
+
+- Rules describe structures (e.g., `Word + Year + Symbol`)  
+- Probabilities indicate how often each rule and component occurs in real data  
+
+Candidates are generated by expanding the most probable structures first.
+
+**Strengths:**
+
+- Captures **structural patterns**, not just characters  
+- Aligns closely with observed human behavior (e.g., “CapitalizedWord + 4-digit year + !”) 
+- Orders guesses by **realistic pattern likelihood**  
+
+**Limitations:**
+
+- Requires representative training sets  
+- More complex to implement and interpret  
+- May underweight rare but strong variants  
+
+**Best thought of as:**  
+
+A **behavioral structural model** of passwords.
+
+---
+
+## 6. Chained Element Models (PRINCE-style)
+
+**Concept:**  
+Take a single wordlist, treat entries as **elements**, and generate **chains** of 1..N elements to form candidates.
+
+- Elements can be short words, fragments, or tokens  
+- Chains are concatenated in many combinations  
+- Output ordering is influenced by chain structure and heuristics  
+
+**Strengths:**
+
+- Explores rich compositional spaces without manual rule design  
+- Bridges dictionary attacks and brute-force spaces  
+- Can emulate extended dictionary-style behavior with the right input data  
+
+**Limitations:**
+
+- Sensitive to the quality and diversity of the input list  
+- Ordering is heuristic, not strictly optimal  
+- Can still produce large, brute-force-like spaces if unconstrained  
+
+**Best thought of as:**  
+
+A **composition-focused generator** that automates the creation of multi-element password structures.
+
+---
+
+## Comparative View
+
+A simplified way to see these models side by side:
+
+| Model Type                 | Primary Focus          | Behavior Assumption                   | Typical Use                         |
+|---------------------------|------------------------|---------------------------------------|-------------------------------------|
+| Dictionary + Rules        | Transforming known words | Users modify familiar strings         | First-pass, high-yield attacks      |
+| Combinator                | Combining a few elements | Users join a small number of parts    | Two-word / word+suffix patterns     |
+| Mask / Brute-Force        | Position & charset     | Any combination in restricted format  | Short / highly constrained spaces   |
+| Markov (Statistical)      | Character transitions  | Local character patterns matter       | Character-level modeling            |
+| PCFG (Grammar-based)      | Structural patterns    | Users follow repeated structures      | Pattern-level modeling              |
+| PRINCE (Chained elements) | Element chaining       | Users build from reusable fragments   | Extended composition exploration    |
+
+
+---
+
+## How These Models Fit Into Hashtopia
+
+Within Hashtopia’s framework:
+
+- **[[1. Concepts|Concepts]]** explain *why* these models work (structure, entropy, guessability, reuse, scale).  
+- **[[3. General Methodology]]** defines *when and why* a given model might be used.  
+- **[[Processing]]** treats candidate generation as one stage in a pipeline, not a goal in itself.  
+- **[[Password Analysis Findings]]** interprets results produced under different models to understand real-world risk.
+
+Candidate generation models should be chosen and evaluated based on:
+
+- The behavior they assume  
+- The population they target  
+- The time and compute available  
+- The research or assessment questions being asked  
+
+---
+
+## Intended Outcome
+
+After reading this page, readers should be able to:
+
+- Recognize the major families of candidate generation models  
+- Understand that each model encodes specific assumptions about human behavior  
+- See why different models produce different results on the same dataset  
+- Place tools like rulesets, Markov modes, PCFGs, and PRINCE into a single, coherent mental map  
+
+#education 

@@ -1,0 +1,13 @@
+# Obsidian workspace (user-specific, changes frequently)
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+
+# Obsidian plugin data (may contain API keys)
+.obsidian/plugins/*/data.json
+
+# Trash
+.trash/
+
+# OS files
+.DS_Store
+Thumbs.db
