@@ -285,6 +285,6 @@ This informs:
 
 [[Password Pattern Analysis|Analysis]]
 [[Home]]
-#pitl0rd #Resources #tools 
+#pitl0rd #resources #tools 
 
 

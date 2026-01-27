@@ -74,5 +74,5 @@ Entropy is a useful theoretical concept, but it **overestimates security** for h
 [[1. Concepts|Concepts]]
 [[Home]]
 
-#Resources #Research #education 
+#resources #research #education 
 

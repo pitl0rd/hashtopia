@@ -14,6 +14,6 @@ Useful when working with [[PACK - Password Analysis and Cracking Kit]]and [[PACK
 | 1080 (16 hrs) | 64800   |     |     |
 | 1440 (24 hrs) | 86400   |     |     |
 
-#Resources 
+#resources 
 
 [[Home]]
