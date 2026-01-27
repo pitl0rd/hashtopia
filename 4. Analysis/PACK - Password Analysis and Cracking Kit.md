@@ -209,4 +209,4 @@ By measuring distributions and extracting patterns, you reduce guessable space a
 [[Home]]
 
 
-#sudad #tools #fundamentals 
+#pitl0rd #tools #fundamentals 

@@ -212,6 +212,6 @@ hashcat -a 3 -m 1000 -w 4 hash.txt -i ?a?a?a?a?a?a?a?a
 
 The goal here is to capture any remaining weak, short, fully non-lexical passwords. This is the last resort for the creative analyst.
 
-#sudad
+#pitl0rd
 [[1. Concepts|Concepts]]
 [[Home]]

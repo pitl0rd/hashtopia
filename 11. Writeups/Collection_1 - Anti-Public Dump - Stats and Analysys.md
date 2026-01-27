@@ -205,7 +205,7 @@ Initial task will break out into two different activity loops:
         Policygen.py
 
 
-#sudad #wordlists
+#pitl0rd #wordlists
 
 
 [Home](https://hashtopia.net/Home)****

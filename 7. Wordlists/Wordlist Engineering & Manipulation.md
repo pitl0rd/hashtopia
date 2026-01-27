@@ -300,6 +300,6 @@ crunch 8 8 0123456789ABCDEF -o hex8.txt
 This tooling exists to **shape probability**, not to exhaust possibility :)
 
 ---
-#sudad #wordlists 
+#pitl0rd #wordlists 
 [[Wordlists and Dictionaries]]
 [[Home]]

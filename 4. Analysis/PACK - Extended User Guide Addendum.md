@@ -285,6 +285,6 @@ This informs:
 
 [[Password Pattern Analysis|Analysis]]
 [[Home]]
-#sudad #Resources #tools 
+#pitl0rd #Resources #tools 
 
 

@@ -45,4 +45,4 @@ COOLING
 
 Don't break the bank building the machine. As you read on you will see that the most effective password cracking tool that you have is your developed analytical ability to asses hashes that you are working with and the ability to utilize the product of that analysis to efficiently probe the target key-space.
 
-#howto #notes #sudad
+#howto #notes #pitl0rd

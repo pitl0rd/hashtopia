@@ -233,6 +233,6 @@ hashcat -a 6 wordlist.txt ?d?d?d?d hashes.txt
 
 
 
-#sudad #rules #howto 
+#pitl0rd #rules #howto 
 [[Rules]]
 [[Home]]

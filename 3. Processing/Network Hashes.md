@@ -186,7 +186,7 @@ NetNTLM research: [https://www.securify.nl/blog](https://www.securify.nl/blog)
 
 SMB relay analysis: [https://pentestlab.blog](https://pentestlab.blog)
 
-#sudad #ntlm #tools 
+#pitl0rd #ntlm #tools 
 
 [[Processing]]
 [[Home]]

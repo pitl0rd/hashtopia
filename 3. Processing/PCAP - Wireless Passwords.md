@@ -143,7 +143,7 @@ These techniques highlight **attack surface**, not just password strength.
 **[[Concept Application - John the Ripper|John the Ripper]]** – [https://www.openwall.com/john](https://www.openwall.com/john)
 
 ---
-#education #tools #sudad 
+#education #tools #pitl0rd 
 
 [[Processing]]
 [[Home]]

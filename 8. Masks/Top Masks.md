@@ -214,7 +214,7 @@ They also serve as an excellent foundation for:
 - Mask attacks are one of the **purest measurements** of human password behavior
 
 ---
-#sudad
+#pitl0rd
 
 [[Masks]]
 [[Home]]

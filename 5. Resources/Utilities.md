@@ -124,7 +124,7 @@ hashid hashes.txt
 
 ## Tags
 
-#tools #hash-id #triage #sudad 
+#tools #hash-id #triage #pitl0rd 
 
 ---
 

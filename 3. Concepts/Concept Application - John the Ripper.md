@@ -232,6 +232,6 @@ These observations inform both **defensive improvements** and **future analytica
 John the Ripper is about **ordering guesses intelligently**, adapting to evidence, and focusing effort where human behavior concentrates probability. This workflow emphasizes reasoning over raw computation, aligning with Hashtopia’s focus on real-world risk and empirical [[Password Pattern Analysis]].
 
 ---
-#sudad
+#pitl0rd
 [[1. Concepts|Concepts]]
 [[Home]]
